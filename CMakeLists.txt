@@ -11,6 +11,6 @@ add_subdirectory("lib/SFML")
 set(SFML_INCS "lib/SFML/include")
 link_directories("${CMAKE_BINARY_DIR}/lib/SFML/lib")
 
-add_executable(rps src/main.cpp)
+add_executable(RockPaperScissors src/main.cpp)
 target_include_directories(RockPaperScissors PRIVATE ${SFML_INCS})
 target_link_libraries(RockPaperScissors sfml-graphics)
