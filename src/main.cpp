@@ -1,7 +1,11 @@
-#include "game/game_params.hpp"
-#include "game/Game.hpp"
+#include "game/game_parameters.hpp"
+#include "game/scenes.hpp"
+
+using param = Parameters;
 
 int main() {
-  Game game(sf::VideoMode(Params::game_width, Params::game_height), Params::title);
-  game.run();
+    Scenes::menu = std::make_shared<MenuScene>();
+    Scenes::menu->load();
+    GameSystem::set_active_scene(Scenes::menu);
+    GameSystem::start(param::game_width, param::game_height, "Rock, Paper, Scissors", param::time_step, false);
 }
