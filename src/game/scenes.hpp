@@ -21,6 +21,8 @@ public:
     void render() override;
     void load()override;
     void unload() override;
+private:
+    sf::RectangleShape _player;
 };
 
 struct Scenes {
