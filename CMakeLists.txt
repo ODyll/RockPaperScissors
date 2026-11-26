@@ -1,5 +1,6 @@
 project(RockPaperScissors)
 cmake_minimum_required(VERSION 3.11)
+
 # Require modern C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -34,15 +35,18 @@ add_executable(RockPaperScissors
     src/main.cpp 
     src/game/scenes.cpp
 )
+
 target_include_directories(RockPaperScissors PRIVATE ${SFML_INCS} lib/engine)
 target_link_libraries(RockPaperScissors sfml-graphics engine)
 set_target_properties(RockPaperScissors 
     PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)
 )
+
 add_custom_target(copy_resources ALL COMMAND ${CMAKE_COMMAND} 
   -E copy_directory
     "${PROJECT_SOURCE_DIR}/resources"
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources
 )
+
 add_dependencies(RockPaperScissors copy_resources)
