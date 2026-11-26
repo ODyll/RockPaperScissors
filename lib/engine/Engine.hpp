@@ -5,23 +5,21 @@
 class Engine {
 public:
   Engine(sf::VideoMode res, const char* name)
-    : pWindow(res, name) {run();};
+    : pWindow(res, name) {};
 
   // ~Engine();
 
-  void run() {
-    while (pWindow.isOpen()) {
-      sf::Event e;
+protected:
+  void close() {
+    pWindow.close();
+  }
 
-      while (pWindow.pollEvent(e)) {
-        if (e.type == sf::Event::Closed) {
-          pWindow.close();
-        }
-      }
+  bool isWinOpen() {
+    return pWindow.isOpen();
+  }
 
-      // pWindow.clear();
-      // pWindow.display();
-    }
+  bool pollEvent(sf::Event& e) {
+    return pWindow.pollEvent(e);
   }
 
 private:
