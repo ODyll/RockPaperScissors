@@ -4,23 +4,16 @@
 // Main engine class -> Game Class inherits from this
 class Engine {
 public:
-  Engine(sf::VideoMode res, const char* name)
-    : pWindow(res, name) {};
+  Engine(sf::VideoMode res, const char* name);
 
   // ~Engine();
 
 protected:
-  void close() {
-    pWindow.close();
-  }
+  void close();
 
-  bool isWinOpen() {
-    return pWindow.isOpen();
-  }
+  bool isWinOpen();
 
-  bool pollEvent(sf::Event& e) {
-    return pWindow.pollEvent(e);
-  }
+  bool pollEvent(sf::Event& e);
 
 private:
   sf::RenderWindow pWindow;
