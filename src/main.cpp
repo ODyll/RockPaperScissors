@@ -4,8 +4,8 @@
 using param = Parameters;
 
 int main() {
-    Scenes::menu = std::make_shared<MenuScene>();
-    Scenes::menu->load();
-    GameSystem::set_active_scene(Scenes::menu);
+    Scenes::play = std::make_shared<PlayScene>();
+    Scenes::play->load();
+    GameSystem::set_active_scene(Scenes::play);
     GameSystem::start(param::game_width, param::game_height, "Rock, Paper, Scissors", param::time_step, false);
 }
