@@ -1,6 +1,7 @@
-#include "../lib/engine/Game.hpp"
-#include "game_params.hpp"
+#include "game/game_params.hpp"
+#include "game/Game.hpp"
 
 int main() {
-  Engine engine(sf::VideoMode(Params::game_width, Params::game_height), Params::title);
+  Game game(sf::VideoMode(Params::game_width, Params::game_height), Params::title);
+  game.run();
 }
