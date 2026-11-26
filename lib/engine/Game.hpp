@@ -3,7 +3,7 @@
 
 class Game {
 public:
-  Game();
-
+  Game(sf::VideoMode res, std::string& name);
+  ~Game();
 private:
 };
