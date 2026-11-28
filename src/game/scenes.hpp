@@ -15,6 +15,9 @@ private:
 
 
 class PlayScene : public Scene {
+private:
+    std::shared_ptr<sf::Texture> player_texture;
+
 public:
     PlayScene() = default;
     void update(const float& dt) override;

@@ -23,11 +23,15 @@ void MenuScene::unload() {}
 
 
 void PlayScene::load() {
+    player_texture = std::make_shared<sf::Texture>();
+    player_texture->loadFromFile("resources/monke.jpg");
+
     std::shared_ptr<Entity> player = make_entity();
     player->set_position(sf::Vector2f(param::game_width / 2.f, param::game_height / 2.f));
-    auto s = player->add_component<ShapeComponent>();
-    s->set_shape<sf::CircleShape>(10.0f);
-    s->get_shape().setFillColor(sf::Color::Red);
+
+    auto s = player->add_component<SpriteComponent>();
+    s->set_texure(player_texture);
+
     player->add_component<KeyboardMovementComponent>();
 }
 
