@@ -16,4 +16,5 @@ struct Parameters{
     static constexpr float player_restitution = 0.0f;
     static constexpr float time_step = 0.017f;
     static constexpr float gravity = 1200.f;
+    static constexpr float player_speed = 500.f;
 };

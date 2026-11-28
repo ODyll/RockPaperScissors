@@ -20,7 +20,7 @@ void KeyboardMovementComponent::update(const float& dt) {
 
 // Initialises the component.
 KeyboardMovementComponent::KeyboardMovementComponent(Entity* p)
-    : _speed(100.0f), Component(p) {}
+    : _speed(param::player_speed), Component(p) {}
 
 // Checks if the proposed move is valid.
 bool KeyboardMovementComponent::valid_move(const sf::Vector2f& pos) {
