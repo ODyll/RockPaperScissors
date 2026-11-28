@@ -1,6 +1,8 @@
 #include "scenes.hpp"
 #include "game_parameters.hpp"
 #include "renderer.hpp"
+#include "graphics_cmps.hpp"
+#include "ctrl_cmps.hpp"
 
 using gs = GameSystem;
 using param = Parameters;
@@ -21,23 +23,21 @@ void MenuScene::unload() {}
 
 
 void PlayScene::load() {
-    _player.setSize({ 40.f, 40.f });
-    _player.setOrigin({ 20.f, 20.f });
-    _player.setPosition(param::game_width/2.f, param::game_height/2.f );
-    _player.setFillColor(sf::Color::Green);
+    std::shared_ptr<Entity> player = make_entity();
+    player->set_position(sf::Vector2f(param::game_width / 2.f, param::game_height / 2.f));
+    auto s = player->add_component<ShapeComponent>();
+    s->set_shape<sf::CircleShape>(10.0f);
+    s->get_shape().setFillColor(sf::Color::Red);
+    player->add_component<KeyboardMovementComponent>();
 }
 
 void PlayScene::unload() {
 }
 
 void PlayScene::update(const float& dt) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        _player.move(-250.f * dt, 0.f);
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        _player.move(250.f * dt, 0.f);
-    }
+    Scene::update(dt);
 }
 
 void PlayScene::render() {
-    Renderer::queue(&_player);
+    Scene::render();
 }

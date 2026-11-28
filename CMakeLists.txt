@@ -34,6 +34,9 @@ target_link_libraries(engine sfml-graphics box2d)
 add_executable(RockPaperScissors
     src/main.cpp 
     src/game/scenes.cpp
+    src/game/graphics_cmps.cpp
+    src/game/ctrl_cmps.cpp
+
 )
 
 target_include_directories(RockPaperScissors PRIVATE ${SFML_INCS} lib/engine)
